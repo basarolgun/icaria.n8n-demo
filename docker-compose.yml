@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "5678:5678"
+    volumes:
+      - ${USERPROFILE}/.n8n:/home/node/.n8n
+    restart: unless-stopped
+    environment:
+      - GENERIC_TIMEZONE=Europe/Istanbul
+      - N8N_LOG_LEVEL=debug
